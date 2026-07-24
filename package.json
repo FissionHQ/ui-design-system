@@ -7,7 +7,8 @@
     "build": "node scripts/build-registry.mjs",
     "sync-rules": "bash scripts/sync-rules.sh",
     "sync-rules:poc": "bash scripts/sync-rules.sh --target",
-    "build:all": "npm run build && npm run sync-rules"
+    "build:all": "npm run build && npm run sync-rules",
+    "create": "bash scripts/create-fission-ui.sh"
   },
   "description": "Fission UI private shadcn/ui registry"
 }

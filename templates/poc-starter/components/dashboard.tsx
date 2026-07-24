@@ -1,13 +1,13 @@
 "use client"
 
 import {
-  Briefcase,
-  Activity,
-  Users,
-  UserCheck,
+  Boxes,
+  Palette,
+  Package,
+  Puzzle,
   Clock,
-  CalendarDays,
-  TrendingDown,
+  BookOpen,
+  TrendingUp,
 } from "lucide-react"
 import {
   Area,
@@ -35,81 +35,80 @@ import {
 
 const metrics = [
   {
-    label: "Open Jobs",
-    value: "5",
-    detail: "2 draft • 3 closed",
-    icon: Briefcase,
+    label: "Owned Components",
+    value: "10",
+    detail: "Button, Input, Card, …",
+    icon: Boxes,
     tone: "chart-1" as const,
   },
   {
-    label: "Active Pipeline",
-    value: "8",
-    detail: "sourced + interview",
-    icon: Activity,
+    label: "Design Tokens",
+    value: "28",
+    detail: "brand • surface • state",
+    icon: Palette,
     tone: "chart-2" as const,
   },
   {
-    label: "Total Candidates",
-    value: "8",
-    detail: "-67% vs last month",
-    trend: "down" as const,
-    icon: Users,
+    label: "Registry Packages",
+    value: "10",
+    detail: "+12% vs last month",
+    trend: "up" as const,
+    icon: Package,
     tone: "chart-3" as const,
   },
   {
-    label: "Hired This Month",
-    value: "0",
-    detail: "-100% vs last month",
-    trend: "down" as const,
-    icon: UserCheck,
+    label: "Public Fallbacks",
+    value: "40+",
+    detail: "accordion, calendar, …",
+    icon: Puzzle,
     tone: "chart-4" as const,
   },
   {
-    label: "Avg Time to Hire",
-    value: "0.4d",
-    detail: "days from apply to hired",
+    label: "Avg Install Time",
+    value: "12s",
+    detail: "npx shadcn add → ready",
     icon: Clock,
     tone: "chart-5" as const,
   },
   {
-    label: "Interviews This Week",
-    value: "0",
-    detail: "19 pending feedback",
-    icon: CalendarDays,
+    label: "Docs & Rules",
+    value: "6",
+    detail: "README, CLAUDE, Cursor, …",
+    icon: BookOpen,
     tone: "chart-6" as const,
   },
 ]
 
-const applicationsData = [
-  { week: "W1", applications: 12, hires: 2 },
-  { week: "W2", applications: 18, hires: 3 },
-  { week: "W3", applications: 9, hires: 1 },
-  { week: "W4", applications: 22, hires: 4 },
-  { week: "W5", applications: 15, hires: 2 },
-  { week: "W6", applications: 28, hires: 5 },
-  { week: "W7", applications: 20, hires: 3 },
-  { week: "W8", applications: 14, hires: 2 },
+const adoptionData = [
+  { week: "W1", installs: 12, demos: 4 },
+  { week: "W2", installs: 18, demos: 6 },
+  { week: "W3", installs: 14, demos: 5 },
+  { week: "W4", installs: 22, demos: 9 },
+  { week: "W5", installs: 19, demos: 7 },
+  { week: "W6", installs: 28, demos: 11 },
+  { week: "W7", installs: 24, demos: 10 },
+  { week: "W8", installs: 31, demos: 14 },
 ]
 
-const sourceData = [
-  { name: "JobPortal", value: 45, color: "var(--chart-2)" },
-  { name: "Naukri", value: 30, color: "var(--chart-1)" },
-  { name: "Others", value: 25, color: "var(--primary)" },
+const usageData = [
+  { name: "POC apps", value: 45, color: "var(--chart-2)" },
+  { name: "Client UIs", value: 30, color: "var(--chart-1)" },
+  { name: "Internal tools", value: 25, color: "var(--primary)" },
 ]
 
-const pipelineData = [
-  { stage: "Sourced", count: 32 },
-  { stage: "Applied", count: 24 },
-  { stage: "Screen", count: 18 },
-  { stage: "Interview", count: 12 },
-  { stage: "Offer", count: 5 },
-  { stage: "Hired", count: 2 },
+const componentUsage = [
+  { stage: "Button", count: 32 },
+  { stage: "Input", count: 24 },
+  { stage: "Card", count: 22 },
+  { stage: "Table", count: 18 },
+  { stage: "Dialog", count: 12 },
+  { stage: "Form", count: 9 },
 ]
 
-const conversions = [
-  { label: "Apply → Interview", value: "76.9%" },
-  { label: "Interview → Offer", value: "41.7%" },
-  { label: "Offer → Hired", value: "40.0%" },
+const adoptionRates = [
+  { label: "Token coverage", value: "100%" },
+  { label: "Registry → app sync", value: "92%" },
+  { label: "AI rule compliance", value: "88%" },
 ]
 
 const toneStyles = {
@@ -129,13 +128,12 @@ export function Dashboard({ className }: { className?: string }) {
           Dashboard
         </h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Recruitment pipeline overview
+          Fission UI Design System overview
         </p>
       </header>
 
       <div className="flex flex-1 flex-col gap-6 p-8 pt-6">
-        {/* Metric cards */}
-        <div className="grid gap-4 grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-6">
           {metrics.map((metric) => {
             const Icon = metric.icon
             return (
@@ -159,11 +157,11 @@ export function Dashboard({ className }: { className?: string }) {
                     <p
                       className={cn(
                         "mt-1.5 flex items-center gap-1 text-xs text-muted-foreground",
-                        metric.trend === "down" && "text-destructive"
+                        metric.trend === "up" && "text-success"
                       )}
                     >
-                      {metric.trend === "down" && (
-                        <TrendingDown className="size-3.5" />
+                      {metric.trend === "up" && (
+                        <TrendingUp className="size-3.5" />
                       )}
                       {metric.detail}
                     </p>
@@ -174,34 +172,33 @@ export function Dashboard({ className }: { className?: string }) {
           })}
         </div>
 
-        {/* Charts row */}
         <div className="grid gap-6 lg:grid-cols-5">
           <Card className="shadow-sm lg:col-span-3">
             <CardHeader className="pb-2">
               <CardTitle className="text-base font-semibold">
-                Applications & Hires
+                Installs & Demos
               </CardTitle>
               <CardDescription>
-                Weekly trend of new applications vs successful hires.
+                Weekly trend of registry installs vs gallery demos opened.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="mb-3 flex items-center gap-4 text-xs text-muted-foreground">
                 <span className="flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-chart-1" />
-                  Applications
+                  Installs
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-chart-4" />
-                  Hires
+                  Demos
                 </span>
               </div>
               <div className="h-[240px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={applicationsData}>
+                  <AreaChart data={adoptionData}>
                     <defs>
                       <linearGradient
-                        id="fillApplications"
+                        id="fillInstalls"
                         x1="0"
                         y1="0"
                         x2="0"
@@ -219,7 +216,7 @@ export function Dashboard({ className }: { className?: string }) {
                         />
                       </linearGradient>
                       <linearGradient
-                        id="fillHires"
+                        id="fillDemos"
                         x1="0"
                         y1="0"
                         x2="0"
@@ -263,16 +260,16 @@ export function Dashboard({ className }: { className?: string }) {
                     />
                     <Area
                       type="monotone"
-                      dataKey="applications"
+                      dataKey="installs"
                       stroke="var(--chart-1)"
-                      fill="url(#fillApplications)"
+                      fill="url(#fillInstalls)"
                       strokeWidth={2}
                     />
                     <Area
                       type="monotone"
-                      dataKey="hires"
+                      dataKey="demos"
                       stroke="var(--chart-4)"
-                      fill="url(#fillHires)"
+                      fill="url(#fillDemos)"
                       strokeWidth={2}
                     />
                   </AreaChart>
@@ -284,10 +281,10 @@ export function Dashboard({ className }: { className?: string }) {
           <Card className="shadow-sm lg:col-span-2">
             <CardHeader className="pb-2">
               <CardTitle className="text-base font-semibold">
-                Source Breakdown
+                Usage Breakdown
               </CardTitle>
               <CardDescription>
-                Where candidates are coming from.
+                Where the design system is adopted across Fission.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -295,7 +292,7 @@ export function Dashboard({ className }: { className?: string }) {
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
-                      data={sourceData}
+                      data={usageData}
                       dataKey="value"
                       nameKey="name"
                       innerRadius={58}
@@ -303,7 +300,7 @@ export function Dashboard({ className }: { className?: string }) {
                       paddingAngle={2}
                       stroke="none"
                     >
-                      {sourceData.map((entry) => (
+                      {usageData.map((entry) => (
                         <Cell key={entry.name} fill={entry.color} />
                       ))}
                     </Pie>
@@ -319,7 +316,7 @@ export function Dashboard({ className }: { className?: string }) {
                 </ResponsiveContainer>
               </div>
               <div className="mt-2 flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
-                {sourceData.map((source) => (
+                {usageData.map((source) => (
                   <span
                     key={source.name}
                     className="flex items-center gap-1.5"
@@ -336,21 +333,24 @@ export function Dashboard({ className }: { className?: string }) {
           </Card>
         </div>
 
-        {/* Bottom row */}
         <div className="grid gap-6 lg:grid-cols-5">
           <Card className="shadow-sm lg:col-span-3">
             <CardHeader className="pb-2">
               <CardTitle className="text-base font-semibold">
-                Pipeline by Stage
+                Component Usage
               </CardTitle>
               <CardDescription>
-                Candidate volume across each hiring stage.
+                Most-used owned components across sample projects.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="h-[220px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={pipelineData} layout="vertical" barSize={16}>
+                  <BarChart
+                    data={componentUsage}
+                    layout="vertical"
+                    barSize={16}
+                  >
                     <CartesianGrid
                       strokeDasharray="3 3"
                       horizontal={false}
@@ -365,7 +365,7 @@ export function Dashboard({ className }: { className?: string }) {
                     <YAxis
                       type="category"
                       dataKey="stage"
-                      width={80}
+                      width={72}
                       tickLine={false}
                       axisLine={false}
                       tick={{ fill: "var(--muted-foreground)", fontSize: 12 }}
@@ -392,12 +392,14 @@ export function Dashboard({ className }: { className?: string }) {
           <Card className="shadow-sm lg:col-span-2">
             <CardHeader className="pb-2">
               <CardTitle className="text-base font-semibold">
-                Conversion Rates
+                Adoption Health
               </CardTitle>
-              <CardDescription>Pipeline efficiency metrics.</CardDescription>
+              <CardDescription>
+                Design system consistency metrics.
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              {conversions.map((item) => (
+              {adoptionRates.map((item) => (
                 <div
                   key={item.label}
                   className="flex items-center justify-between rounded-lg border border-border bg-muted/40 px-4 py-3"

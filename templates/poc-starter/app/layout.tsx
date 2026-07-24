@@ -5,8 +5,8 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Platform — Dashboard",
-  description: "Recruitment pipeline overview built with Fission UI Design System",
+  title: "Fission UI Design System",
+  description: "Component gallery and design system overview for Fission Labs",
 }
 
 export default function RootLayout({

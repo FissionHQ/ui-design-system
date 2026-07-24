@@ -95,10 +95,10 @@ export function AppSidebar({
             className="min-w-0 flex-1 text-left"
           >
             <p className="truncate text-sm font-semibold leading-tight">
-              Organization Name
+              Fission UI
             </p>
             <p className="truncate text-xs font-medium text-primary">
-              App name
+              Design System
             </p>
           </button>
         )}
@@ -169,14 +169,14 @@ export function AppSidebar({
           )}
         >
           <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary/90 text-xs font-semibold text-primary-foreground">
-            SK
+            DS
           </div>
           {!collapsed && (
             <div className="min-w-0">
               <p className="truncate text-sm font-medium leading-tight">
-               User Name
+                Design System
               </p>
-              <p className="text-xs text-sidebar-muted">Admin</p>
+              <p className="text-xs text-sidebar-muted">Maintainer</p>
             </div>
           )}
         </div>
