@@ -88,6 +88,20 @@ npm run dev
 
 ---
 
+## Client theming (choose a theme)
+
+The POC starter includes a **Client theme** picker in the sidebar. Selecting a theme swaps CSS tokens (`--color-brand`, sidebar, etc.) so **every component updates instantly** — buttons, links, focus rings, active nav, and charts that use primary.
+
+Built-in presets: `Fission`, `Ocean`, `Forest`, `Violet`, `Slate`.
+
+- Choice is stored in `localStorage` (`fission-ui-theme`)
+- Themes live in `templates/poc-starter/app/globals.css` as `:root[data-theme="…"]`
+- Add a new client theme by copying a preset block and registering it in `lib/themes.ts`
+
+For a production POC delivered to one client, you can still hard-set that client’s tokens in `globals.css` (or lock the picker to one theme).
+
+---
+
 ## Adding more shadcn components (same Fission theme)
 
 This registry only **owns** 10 components. For anything else:

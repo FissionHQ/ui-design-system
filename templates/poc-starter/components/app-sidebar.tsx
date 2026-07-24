@@ -20,6 +20,7 @@ import {
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { ThemePicker } from "@/components/theme-picker"
 
 export type NavId =
   | "home"
@@ -155,6 +156,8 @@ export function AppSidebar({
           {!collapsed && <span>Shadcn</span>}
         </a>
       </nav>
+
+      <ThemePicker collapsed={collapsed} />
 
       <div
         className={cn(

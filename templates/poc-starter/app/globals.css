@@ -77,6 +77,53 @@
     --radius: 0.5rem;
   }
 
+  /* Client / POC theme presets — switch via data-theme on <html> */
+  :root,
+  :root[data-theme="fission"] {
+    --color-brand: #f25011;
+    --color-brand-hover: #e0470f;
+    --color-brand-active: #cf400d;
+    --color-on-brand: #ffffff;
+    --color-sidebar: #1c1e2e;
+    --sidebar-accent: rgba(242, 80, 17, 0.12);
+  }
+
+  :root[data-theme="ocean"] {
+    --color-brand: #2563eb;
+    --color-brand-hover: #1d4ed8;
+    --color-brand-active: #1e40af;
+    --color-on-brand: #ffffff;
+    --color-sidebar: #0f172a;
+    --sidebar-accent: rgba(37, 99, 235, 0.16);
+  }
+
+  :root[data-theme="forest"] {
+    --color-brand: #059669;
+    --color-brand-hover: #047857;
+    --color-brand-active: #065f46;
+    --color-on-brand: #ffffff;
+    --color-sidebar: #14532d;
+    --sidebar-accent: rgba(5, 150, 105, 0.16);
+  }
+
+  :root[data-theme="violet"] {
+    --color-brand: #7c3aed;
+    --color-brand-hover: #6d28d9;
+    --color-brand-active: #5b21b6;
+    --color-on-brand: #ffffff;
+    --color-sidebar: #1e1b4b;
+    --sidebar-accent: rgba(124, 58, 237, 0.16);
+  }
+
+  :root[data-theme="slate"] {
+    --color-brand: #475569;
+    --color-brand-hover: #334155;
+    --color-brand-active: #1e293b;
+    --color-on-brand: #ffffff;
+    --color-sidebar: #0f172a;
+    --sidebar-accent: rgba(71, 85, 105, 0.2);
+  }
+
   .dark {
     --color-bg: #09090b;
     --color-surface: #18181b;
