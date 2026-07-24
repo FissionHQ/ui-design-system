@@ -1,0 +1,13 @@
+{
+  "name": "ui-design-system",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-registry.mjs",
+    "sync-rules": "bash scripts/sync-rules.sh",
+    "sync-rules:poc": "bash scripts/sync-rules.sh --target",
+    "build:all": "npm run build && npm run sync-rules"
+  },
+  "description": "Fission UI private shadcn/ui registry"
+}

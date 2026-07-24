@@ -1,0 +1,324 @@
+---
+description: Fission UI design system rules — apply to all UI code
+globs:
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.ts"
+alwaysApply: true
+---
+
+# Fission UI Design System
+
+> **AI coding tools: read this entire file before generating any UI code.**
+> It overrides shadcn/ui defaults, raw HTML patterns, and any color values
+> you might otherwise invent.
+
+---
+
+## Registry URL
+
+```
+https://FissionHQ.github.io/ui-design-system
+```
+
+### Install command (per component)
+
+```bash
+npx shadcn add https://FissionHQ.github.io/ui-design-system/r/button.json
+npx shadcn add https://FissionHQ.github.io/ui-design-system/r/input.json
+npx shadcn add https://FissionHQ.github.io/ui-design-system/r/card.json
+npx shadcn add https://FissionHQ.github.io/ui-design-system/r/dialog.json
+npx shadcn add https://FissionHQ.github.io/ui-design-system/r/table.json
+npx shadcn add https://FissionHQ.github.io/ui-design-system/r/form.json
+npx shadcn add https://FissionHQ.github.io/ui-design-system/r/badge.json
+npx shadcn add https://FissionHQ.github.io/ui-design-system/r/select.json
+npx shadcn add https://FissionHQ.github.io/ui-design-system/r/tabs.json
+npx shadcn add https://FissionHQ.github.io/ui-design-system/r/toast.json
+```
+
+### Install all at once
+
+```bash
+npx shadcn add \
+  https://FissionHQ.github.io/ui-design-system/r/button.json \
+  https://FissionHQ.github.io/ui-design-system/r/input.json \
+  https://FissionHQ.github.io/ui-design-system/r/card.json \
+  https://FissionHQ.github.io/ui-design-system/r/dialog.json \
+  https://FissionHQ.github.io/ui-design-system/r/table.json \
+  https://FissionHQ.github.io/ui-design-system/r/form.json \
+  https://FissionHQ.github.io/ui-design-system/r/badge.json \
+  https://FissionHQ.github.io/ui-design-system/r/select.json \
+  https://FissionHQ.github.io/ui-design-system/r/tabs.json \
+  https://FissionHQ.github.io/ui-design-system/r/toast.json
+```
+
+---
+
+## Rules for AI coding tools
+
+1. **Always use our registry first.** For the 10 components listed above,
+   always pull from our registry URL, never from the public shadcn registry
+   (`https://ui.shadcn.com`) and never hand-roll HTML.
+
+2. **Fall back to the public shadcn registry** for any component NOT in our
+   list (e.g. Accordion, Slider, Calendar). The public components inherit
+   our tokens automatically via CSS variables — no extra work needed.
+   ```bash
+   npx shadcn add accordion   # public registry — fine for unlisted components
+   ```
+
+3. **Never hand-roll form elements.** Always use `<Input>`, `<Button>`,
+   `<Select>`, `<Form>` etc. from `@/components/ui/*`. Raw `<input>`,
+   `<button>`, or `<select>` tags are not acceptable in POC code.
+
+4. **Never hardcode hex values or Tailwind color literals** like
+   `bg-orange-500`, `text-[#f25011]`, or `style={{ color: '#f25011' }}`.
+   Use CSS variable tokens exclusively (see table below).
+
+5. **Dark mode is handled automatically** by a `.dark` class on `<html>`.
+   Never write manual dark-mode logic against these tokens.
+
+6. **Import path is always `@/components/ui/<name>`** after running the
+   registry install command.
+
+---
+
+## Token reference
+
+All values are CSS custom properties set in `app/globals.css`.
+
+### Brand
+
+| Token               | CSS Variable          | Light value | Dark value  | Use for                        |
+|---------------------|-----------------------|-------------|-------------|--------------------------------|
+| Primary             | `--primary`           | `#f25011`   | `#f25011`   | Primary buttons, links, rings  |
+| Primary hover       | `--primary-hover`     | `#e0470f`   | `#e0470f`   | Button hover state             |
+| Primary active      | `--primary-active`    | `#cf400d`   | `#cf400d`   | Button pressed state           |
+| Primary foreground  | `--primary-foreground`| `#ffffff`   | `#ffffff`   | Text/icons on brand bg         |
+
+### Semantic surfaces
+
+| Token               | CSS Variable            | Light value | Dark value  | Use for                        |
+|---------------------|-------------------------|-------------|-------------|--------------------------------|
+| Background          | `--background`          | `#fafafa`   | `#09090b`   | Page background                |
+| Foreground          | `--foreground`          | `#18181b`   | `#f4f4f5`   | Primary text                   |
+| Card                | `--card`                | `#ffffff`   | `#18181b`   | Card / panel bg                |
+| Card foreground     | `--card-foreground`     | `#18181b`   | `#f4f4f5`   | Text inside cards              |
+| Popover             | `--popover`             | `#ffffff`   | `#18181b`   | Dropdown / popover bg          |
+| Popover foreground  | `--popover-foreground`  | `#18181b`   | `#f4f4f5`   | Text inside popovers           |
+| Muted               | `--muted`               | `#f4f4f5`   | `#27272a`   | Subtle section backgrounds     |
+| Muted foreground    | `--muted-foreground`    | `#71717a`   | `#a1a1aa`   | Placeholder, caption text      |
+| Border              | `--border`              | `#e4e4e7`   | `#3f3f46`   | All borders                    |
+| Input               | `--input`               | `#e4e4e7`   | `#3f3f46`   | Input borders                  |
+| Ring                | `--ring`                | `#f25011`   | `#f25011`   | Focus ring                     |
+| Accent              | `--accent`              | `#f4f4f5`   | `#27272a`   | Hover bg on ghost items        |
+| Accent foreground   | `--accent-foreground`   | `#18181b`   | `#fafafa`   | Text on accent bg              |
+
+### Secondary
+
+| Token                 | CSS Variable              | Light value | Dark value  | Use for                  |
+|-----------------------|---------------------------|-------------|-------------|--------------------------|
+| Secondary             | `--secondary`             | `#f4f4f5`   | `#27272a`   | Secondary button bg      |
+| Secondary foreground  | `--secondary-foreground`  | `#18181b`   | `#fafafa`   | Secondary button text    |
+
+### State
+
+| Token                     | CSS Variable                  | Value     | Use for                    |
+|---------------------------|-------------------------------|-----------|----------------------------|
+| Destructive               | `--destructive`               | `#dc2626` | Error, delete actions      |
+| Destructive foreground    | `--destructive-foreground`    | `#ffffff` | Text on destructive bg     |
+| Success                   | `--success`                   | `#16a34a` | Success states, badges     |
+| Success foreground        | `--success-foreground`        | `#ffffff` | Text on success bg         |
+| Warning                   | `--warning`                   | `#d97706` | Warning states, badges     |
+| Warning foreground        | `--warning-foreground`        | `#ffffff` | Text on warning bg         |
+
+### Sidebar
+
+| Token                | CSS Variable             | Value     | Use for           |
+|----------------------|--------------------------|-----------|-------------------|
+| Sidebar background   | `--sidebar-background`   | `#1c1e2e` | Sidebar nav bg    |
+| Sidebar foreground   | `--sidebar-foreground`   | `#ffffff` | Sidebar text      |
+
+### Layout
+
+| Token    | CSS Variable | Value      | Use for              |
+|----------|--------------|------------|----------------------|
+| Radius   | `--radius`   | `0.5rem`   | All border-radius    |
+
+---
+
+## Component inventory
+
+| Component | Registry URL                                         | Public shadcn fallback |
+|-----------|------------------------------------------------------|------------------------|
+| Button    | `.../r/button.json`                                  | —                      |
+| Input     | `.../r/input.json`                                   | —                      |
+| Card      | `.../r/card.json`                                    | —                      |
+| Dialog    | `.../r/dialog.json`                                  | —                      |
+| Table     | `.../r/table.json`                                   | —                      |
+| Form      | `.../r/form.json`                                    | —                      |
+| Badge     | `.../r/badge.json`                                   | —                      |
+| Select    | `.../r/select.json`                                  | —                      |
+| Tabs      | `.../r/tabs.json`                                    | —                      |
+| Toast     | `.../r/toast.json`                                   | —                      |
+| All others | —                                                   | `npx shadcn add <name>`|
+
+---
+
+## Usage conventions
+
+- **Import path:** `import { Button } from "@/components/ui/button"` (always
+  `@/components/ui/*`, never a deep relative path)
+- **Variant naming:** `variant="default"` is always the primary brand action
+- **Sizes:** `size="sm"` | `"default"` | `"lg"` | `"icon"` (Button)
+- **Form pattern:** always pair `<Input>` with `<FormLabel>` + `<FormControl>`
+  inside a `<FormItem>` — never a raw label/input pair
+- **Dark mode:** add `dark` class to `<html>` or use
+  `next-themes` ThemeProvider — never write per-component dark: overrides
+  for the variables listed above
+
+---
+
+## Code examples
+
+### 1. Primary action button
+
+```tsx
+// GOOD — uses registry component, brand token via variant
+import { Button } from "@/components/ui/button"
+<Button>Save changes</Button>
+
+// BAD — raw HTML, hardcoded brand color
+<button style={{ backgroundColor: "#f25011", color: "#fff" }}>
+  Save changes
+</button>
+
+// BAD — Tailwind color literal instead of token
+<button className="bg-orange-500 text-white rounded-md px-4 py-2">
+  Save changes
+</button>
+```
+
+### 2. Form field
+
+```tsx
+// GOOD — Form + Input from registry, accessible labels wired automatically
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+
+<FormField
+  control={form.control}
+  name="email"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel>Email</FormLabel>
+      <FormControl>
+        <Input placeholder="you@example.com" {...field} />
+      </FormControl>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
+
+// BAD — hand-rolled, no accessible association, wrong tokens
+<div>
+  <label className="text-sm font-medium">Email</label>
+  <input
+    className="border rounded p-2 w-full mt-1"
+    placeholder="you@example.com"
+  />
+</div>
+```
+
+### 3. Status badge
+
+```tsx
+// GOOD — semantic variant, token-driven color
+import { Badge } from "@/components/ui/badge"
+<Badge variant="destructive">Failed</Badge>
+<Badge variant="success">Active</Badge>
+<Badge variant="warning">Pending</Badge>
+
+// BAD — hardcoded color, bypasses token system
+<span className="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
+  Failed
+</span>
+```
+
+### 4. Card layout
+
+```tsx
+// GOOD — structured slots, tokens applied by the component
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
+
+<Card>
+  <CardHeader>
+    <CardTitle>Project overview</CardTitle>
+    <CardDescription>Current sprint status</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>Content here.</p>
+  </CardContent>
+</Card>
+
+// BAD — manual shadow, hardcoded border, no token usage
+<div className="rounded-lg border border-zinc-200 bg-white shadow p-6">
+  <h3 className="text-lg font-semibold">Project overview</h3>
+  <p className="text-zinc-500 text-sm">Current sprint status</p>
+</div>
+```
+
+### 5. Per-client re-theming
+
+```css
+/* GOOD — swap only the brand tokens in globals.css for a new client */
+:root {
+  --color-brand: #0066cc;        /* client brand color */
+  --color-brand-hover: #0052a3;
+  --color-brand-active: #003d7a;
+  /* all other tokens unchanged — every component updates automatically */
+}
+
+/* BAD — hardcoded color in a component file */
+.btn-primary {
+  background-color: #f25011;     /* now this breaks on every client re-theme */
+}
+```
+
+### 6. Adding a new component
+
+```bash
+# GOOD — pull from our registry first
+npx shadcn add https://FissionHQ.github.io/ui-design-system/r/select.json
+
+# For anything not in our 10, fall back to public shadcn — tokens still apply
+npx shadcn add accordion
+
+# BAD — never do this for our 10 components (gets unthemed public version)
+npx shadcn add button
+```
+
+---
+
+## Per-client re-theming
+
+Only these variables need to change for a full brand swap:
+
+```
+--color-brand
+--color-brand-hover
+--color-brand-active
+--color-on-brand
+--color-sidebar   (optional — only if client has a distinct sidebar color)
+```
+
+All other variables (zinc scale, state colors, layout tokens) stay the same
+unless the client has specific requirements. Change them in `globals.css`
+only — never touch component files.
+
+---
+
+## Update workflow
+
+See `REGISTRY_UPDATE.md` for the full sync procedure when upstream shadcn
+changes a component we own.

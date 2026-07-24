@@ -1,0 +1,127 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "acme-ui",
+  "homepage": "https://FissionHQ.github.io/ui-design-system",
+  "items": [
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Inline label with default (brand), secondary, destructive, success, warning, and outline variants.",
+      "files": [
+        {
+          "path": "r/badge.json",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Brand-themed button with primary, secondary, destructive, outline, ghost, and link variants.",
+      "files": [
+        {
+          "path": "r/button.json",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Surface container with header, content, and footer slots. Uses --card and --border tokens.",
+      "files": [
+        {
+          "path": "r/card.json",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Modal dialog built on Radix UI. Overlay, content, header, footer, title, and description slots.",
+      "files": [
+        {
+          "path": "r/dialog.json",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "title": "Form",
+      "description": "React Hook Form integration with accessible labels, descriptions, and error messages.",
+      "files": [
+        {
+          "path": "r/form.json",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Text input field styled with brand border, ring, and background tokens.",
+      "files": [
+        {
+          "path": "r/input.json",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Accessible dropdown built on Radix UI. Uses --border, --ring, and --accent tokens.",
+      "files": [
+        {
+          "path": "r/select.json",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Accessible data table with header, body, footer, row, head, cell, and caption slots.",
+      "files": [
+        {
+          "path": "r/table.json",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Keyboard-navigable tab panel built on Radix UI. Active tab uses --background and --foreground.",
+      "files": [
+        {
+          "path": "r/tabs.json",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Notification toasts with default, destructive, and success variants. Requires toaster setup.",
+      "files": [
+        {
+          "path": "r/toast.json",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

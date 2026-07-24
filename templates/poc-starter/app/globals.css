@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-brand: #f25011;
+    --color-brand-hover: #e0470f;
+    --color-brand-active: #cf400d;
+    --color-on-brand: #ffffff;
+
+    --color-zinc-50: #fafafa;
+    --color-zinc-100: #f4f4f5;
+    --color-zinc-200: #e4e4e7;
+    --color-zinc-300: #d4d4d8;
+    --color-zinc-400: #a1a1aa;
+    --color-zinc-500: #71717a;
+    --color-zinc-600: #52525b;
+    --color-zinc-700: #3f3f46;
+    --color-zinc-800: #27272a;
+    --color-zinc-900: #18181b;
+    --color-zinc-950: #09090b;
+
+    --color-bg: #fafafa;
+    --color-surface: #ffffff;
+    --color-text: #18181b;
+    --color-text-muted: #71717a;
+    --color-border: #e4e4e7;
+    --color-sidebar: #1c1e2e;
+
+    --background: var(--color-bg);
+    --foreground: var(--color-text);
+    --card: var(--color-surface);
+    --card-foreground: var(--color-text);
+    --popover: var(--color-surface);
+    --popover-foreground: var(--color-text);
+
+    --primary: var(--color-brand);
+    --primary-hover: var(--color-brand-hover);
+    --primary-active: var(--color-brand-active);
+    --primary-foreground: var(--color-on-brand);
+
+    --secondary: var(--color-zinc-100);
+    --secondary-foreground: var(--color-zinc-900);
+
+    --muted: var(--color-zinc-100);
+    --muted-foreground: var(--color-text-muted);
+
+    --accent: var(--color-zinc-100);
+    --accent-foreground: var(--color-zinc-900);
+
+    --border: var(--color-border);
+    --input: var(--color-border);
+    --ring: var(--color-brand);
+
+    --destructive: #dc2626;
+    --destructive-foreground: #ffffff;
+    --success: #16a34a;
+    --success-foreground: #ffffff;
+    --warning: #d97706;
+    --warning-foreground: #ffffff;
+
+    --sidebar-background: var(--color-sidebar);
+    --sidebar-foreground: #ffffff;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --color-bg: #09090b;
+    --color-surface: #18181b;
+    --color-text: #f4f4f5;
+    --color-text-muted: #a1a1aa;
+    --color-border: #3f3f46;
+
+    --background: var(--color-bg);
+    --foreground: var(--color-text);
+    --card: var(--color-surface);
+    --card-foreground: var(--color-text);
+    --popover: var(--color-surface);
+    --popover-foreground: var(--color-text);
+
+    --secondary: var(--color-zinc-800);
+    --secondary-foreground: var(--color-zinc-50);
+    --muted: var(--color-zinc-800);
+    --muted-foreground: var(--color-text-muted);
+    --accent: var(--color-zinc-800);
+    --accent-foreground: var(--color-zinc-50);
+
+    --border: var(--color-border);
+    --input: var(--color-border);
+  }
+}

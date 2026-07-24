@@ -1,0 +1,87 @@
+{
+  "button": {
+    "title": "Button",
+    "description": "Brand-themed button with primary, secondary, destructive, outline, ghost, and link variants.",
+    "shadcnUpstream": "button",
+    "upstreamVersion": "shadcn/ui@2.3.0",
+    "lastSynced": "2026-07-24",
+    "dependencies": ["@radix-ui/react-slot", "class-variance-authority"]
+  },
+  "input": {
+    "title": "Input",
+    "description": "Text input field styled with brand border, ring, and background tokens.",
+    "shadcnUpstream": "input",
+    "upstreamVersion": "shadcn/ui@2.3.0",
+    "lastSynced": "2026-07-24",
+    "dependencies": []
+  },
+  "card": {
+    "title": "Card",
+    "description": "Surface container with header, content, and footer slots. Uses --card and --border tokens.",
+    "shadcnUpstream": "card",
+    "upstreamVersion": "shadcn/ui@2.3.0",
+    "lastSynced": "2026-07-24",
+    "dependencies": []
+  },
+  "dialog": {
+    "title": "Dialog",
+    "description": "Modal dialog built on Radix UI. Overlay, content, header, footer, title, and description slots.",
+    "shadcnUpstream": "dialog",
+    "upstreamVersion": "shadcn/ui@2.3.0",
+    "lastSynced": "2026-07-24",
+    "dependencies": ["@radix-ui/react-dialog", "lucide-react"]
+  },
+  "table": {
+    "title": "Table",
+    "description": "Accessible data table with header, body, footer, row, head, cell, and caption slots.",
+    "shadcnUpstream": "table",
+    "upstreamVersion": "shadcn/ui@2.3.0",
+    "lastSynced": "2026-07-24",
+    "dependencies": []
+  },
+  "form": {
+    "title": "Form",
+    "description": "React Hook Form integration with accessible labels, descriptions, and error messages.",
+    "shadcnUpstream": "form",
+    "upstreamVersion": "shadcn/ui@2.3.0",
+    "lastSynced": "2026-07-24",
+    "dependencies": [
+      "@radix-ui/react-label",
+      "@radix-ui/react-slot",
+      "react-hook-form"
+    ],
+    "registryDependencies": ["label"]
+  },
+  "badge": {
+    "title": "Badge",
+    "description": "Inline label with default (brand), secondary, destructive, success, warning, and outline variants.",
+    "shadcnUpstream": "badge",
+    "upstreamVersion": "shadcn/ui@2.3.0",
+    "lastSynced": "2026-07-24",
+    "dependencies": ["class-variance-authority"]
+  },
+  "select": {
+    "title": "Select",
+    "description": "Accessible dropdown built on Radix UI. Uses --border, --ring, and --accent tokens.",
+    "shadcnUpstream": "select",
+    "upstreamVersion": "shadcn/ui@2.3.0",
+    "lastSynced": "2026-07-24",
+    "dependencies": ["@radix-ui/react-select", "lucide-react"]
+  },
+  "tabs": {
+    "title": "Tabs",
+    "description": "Keyboard-navigable tab panel built on Radix UI. Active tab uses --background and --foreground.",
+    "shadcnUpstream": "tabs",
+    "upstreamVersion": "shadcn/ui@2.3.0",
+    "lastSynced": "2026-07-24",
+    "dependencies": ["@radix-ui/react-tabs"]
+  },
+  "toast": {
+    "title": "Toast",
+    "description": "Notification toasts with default, destructive, and success variants. Requires toaster setup.",
+    "shadcnUpstream": "toast",
+    "upstreamVersion": "shadcn/ui@2.3.0",
+    "lastSynced": "2026-07-24",
+    "dependencies": ["@radix-ui/react-toast", "class-variance-authority", "lucide-react"]
+  }
+}
