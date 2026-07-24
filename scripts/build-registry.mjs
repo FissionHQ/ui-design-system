@@ -79,7 +79,7 @@ for (const name of readdirSync(SRC)) {
 
 const registry = {
   $schema: "https://ui.shadcn.com/schema/registry.json",
-  name: "acme-ui",
+  name: "fission-ui",
   homepage: "https://FissionHQ.github.io/ui-design-system",
   items,
 }
