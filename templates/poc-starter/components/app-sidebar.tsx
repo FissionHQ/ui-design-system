@@ -15,6 +15,7 @@ import {
   Bell,
   MessageSquare,
   BookOpen,
+  ArrowRightLeft,
   ExternalLink,
   ChevronLeft,
   ChevronRight,
@@ -28,6 +29,7 @@ export type NavId =
   | "home"
   | "dashboard"
   | "getting-started"
+  | "migration"
   | "buttons"
   | "accordion"
   | "table"
@@ -43,6 +45,7 @@ export type NavId =
 
 export const docNavItems = [
   { id: "getting-started" as const, label: "Getting Started", icon: BookOpen },
+  { id: "migration" as const, label: "Migration Guide", icon: ArrowRightLeft },
   { id: "dashboard" as const, label: "Dashboard", icon: LayoutDashboard },
 ]
 
