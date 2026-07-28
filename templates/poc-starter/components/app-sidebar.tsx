@@ -13,6 +13,7 @@ import {
   PanelsTopLeft,
   ClipboardList,
   Bell,
+  MessageSquare,
   ExternalLink,
   ChevronLeft,
   ChevronRight,
@@ -36,6 +37,7 @@ export type NavId =
   | "tabs"
   | "form"
   | "toast"
+  | "chat"
 
 export const componentNavItems = [
   { id: "dashboard" as const, label: "Dashboard", icon: LayoutDashboard },
@@ -50,6 +52,7 @@ export const componentNavItems = [
   { id: "tabs" as const, label: "Tabs", icon: PanelsTopLeft },
   { id: "form" as const, label: "Form", icon: ClipboardList },
   { id: "toast" as const, label: "Toast", icon: Bell },
+  { id: "chat" as const, label: "Chat Window", icon: MessageSquare },
 ]
 
 type AppSidebarProps = {

@@ -19,6 +19,7 @@ import {
   TabsDemo,
   ToastDemo,
 } from "@/components/component-demos"
+import { ChatDemo } from "@/components/chat-window"
 
 export function AppShell() {
   const [collapsed, setCollapsed] = useState(false)
@@ -48,6 +49,7 @@ export function AppShell() {
           {activeNav === "tabs" && <TabsDemo />}
           {activeNav === "form" && <FormDemo />}
           {activeNav === "toast" && <ToastDemo />}
+          {activeNav === "chat" && <ChatDemo />}
         </main>
       </div>
     </ThemeProvider>
