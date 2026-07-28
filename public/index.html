@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fission UI Design System</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #09090b;
+      color: #f4f4f5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .card {
+      background: #18181b;
+      border: 1px solid #3f3f46;
+      border-radius: 0.75rem;
+      padding: 2.5rem 3rem;
+      max-width: 560px;
+      width: 100%;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #f25011;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #fafafa;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #a1a1aa;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #71717a;
+      margin-bottom: 0.75rem;
+    }
+
+    .install-block {
+      background: #09090b;
+      border: 1px solid #3f3f46;
+      border-radius: 0.5rem;
+      padding: 1rem 1.25rem;
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 0.8rem;
+      color: #f4f4f5;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .components {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .chip {
+      background: #27272a;
+      border: 1px solid #3f3f46;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      color: #a1a1aa;
+      padding: 0.2rem 0.65rem;
+    }
+
+    .links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .links a {
+      color: #f25011;
+      font-size: 0.85rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .links a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">Private Registry</span>
+    <h1>Fission UI<br>Design System</h1>
+    <p class="subtitle">
+      Brand-themed shadcn/ui components for Fission projects.
+      Install via the shadcn CLI — tokens, dark mode, and AI rules included.
+    </p>
+
+    <h2>Install a component</h2>
+    <div class="install-block">npx shadcn add https://FissionHQ.github.io/ui-design-system/r/button.json</div>
+
+    <h2>Owned components</h2>
+    <div class="components">
+      <span class="chip">Button</span>
+      <span class="chip">Input</span>
+      <span class="chip">Card</span>
+      <span class="chip">Dialog</span>
+      <span class="chip">Table</span>
+      <span class="chip">Form</span>
+      <span class="chip">Badge</span>
+      <span class="chip">Select</span>
+      <span class="chip">Tabs</span>
+      <span class="chip">Toast</span>
+    </div>
+
+    <div class="links">
+      <a href="https://github.com/FissionHQ/ui-design-system" target="_blank">GitHub →</a>
+      <a href="/ui-design-system/registry.json">registry.json →</a>
+      <a href="https://ui.shadcn.com/docs" target="_blank">shadcn docs →</a>
+    </div>
+  </div>
+</body>
+</html>
