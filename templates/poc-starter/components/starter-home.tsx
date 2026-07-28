@@ -9,15 +9,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { componentNavItems, type NavId } from "@/components/app-sidebar"
+import { allNavItems, componentNavItems, type NavId } from "@/components/app-sidebar"
 
 export function StarterHome({
   onNavigate,
 }: {
   onNavigate: (id: NavId) => void
 }) {
-  const featured = componentNavItems.filter((item) =>
-    ["buttons", "accordion", "table", "dashboard"].includes(item.id)
+  const featured = allNavItems.filter((item) =>
+    ["getting-started", "buttons", "accordion", "dashboard"].includes(item.id)
   )
 
   return (
@@ -60,7 +60,7 @@ export function StarterHome({
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-wrap gap-2">
-            {componentNavItems.map((item) => (
+            {allNavItems.map((item) => (
               <Badge
                 key={item.id}
                 variant="secondary"

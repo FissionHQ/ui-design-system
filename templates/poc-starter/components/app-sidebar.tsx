@@ -14,6 +14,7 @@ import {
   ClipboardList,
   Bell,
   MessageSquare,
+  BookOpen,
   ExternalLink,
   ChevronLeft,
   ChevronRight,
@@ -26,6 +27,7 @@ import { ThemePicker } from "@/components/theme-picker"
 export type NavId =
   | "home"
   | "dashboard"
+  | "getting-started"
   | "buttons"
   | "accordion"
   | "table"
@@ -39,8 +41,12 @@ export type NavId =
   | "toast"
   | "chat"
 
-export const componentNavItems = [
+export const docNavItems = [
+  { id: "getting-started" as const, label: "Getting Started", icon: BookOpen },
   { id: "dashboard" as const, label: "Dashboard", icon: LayoutDashboard },
+]
+
+export const componentNavItems = [
   { id: "buttons" as const, label: "Buttons", icon: MousePointerClick },
   { id: "accordion" as const, label: "Accordion", icon: ChevronsDownUp },
   { id: "table" as const, label: "Table", icon: Table2 },
@@ -54,6 +60,8 @@ export const componentNavItems = [
   { id: "toast" as const, label: "Toast", icon: Bell },
   { id: "chat" as const, label: "Chat Window", icon: MessageSquare },
 ]
+
+export const allNavItems = [...docNavItems, ...componentNavItems]
 
 type AppSidebarProps = {
   activeNav: NavId
@@ -123,6 +131,39 @@ export function AppSidebar({
       </div>
 
       <nav className="flex flex-1 flex-col gap-0.5 overflow-y-auto px-3 py-4">
+        {!collapsed && (
+          <p className="mb-1 px-3 text-[10px] font-semibold uppercase tracking-wider text-sidebar-muted">
+            Docs
+          </p>
+        )}
+        {docNavItems.map(({ id, label, icon: Icon }) => {
+          const active = activeNav === id
+          return (
+            <button
+              key={id}
+              type="button"
+              onClick={() => onNavigate(id)}
+              className={cn(
+                "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                collapsed && "justify-center px-0",
+                active
+                  ? "bg-sidebar-accent text-primary"
+                  : "text-sidebar-muted hover:bg-white/5 hover:text-sidebar-foreground"
+              )}
+            >
+              <Icon className="size-[18px] shrink-0" />
+              {!collapsed && <span>{label}</span>}
+            </button>
+          )
+        })}
+
+        <div className="my-3 border-t border-sidebar-border" />
+
+        {!collapsed && (
+          <p className="mb-1 px-3 text-[10px] font-semibold uppercase tracking-wider text-sidebar-muted">
+            Components
+          </p>
+        )}
         {componentNavItems.map(({ id, label, icon: Icon }) => {
           const active = activeNav === id
           return (

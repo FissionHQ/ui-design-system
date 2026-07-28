@@ -20,6 +20,7 @@ import {
   ToastDemo,
 } from "@/components/component-demos"
 import { ChatDemo } from "@/components/chat-window"
+import { GettingStarted } from "@/components/getting-started"
 
 export function AppShell() {
   const [collapsed, setCollapsed] = useState(false)
@@ -37,6 +38,7 @@ export function AppShell() {
         />
         <main className="min-w-0 flex-1 overflow-auto">
           {activeNav === "home" && <StarterHome onNavigate={setActiveNav} />}
+          {activeNav === "getting-started" && <GettingStarted />}
           {activeNav === "dashboard" && <Dashboard />}
           {activeNav === "buttons" && <ButtonsDemo />}
           {activeNav === "accordion" && <AccordionDemo />}
