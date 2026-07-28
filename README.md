@@ -9,6 +9,7 @@ Use this for every Fission UI project (POCs, apps, demos) so screens share the s
 | **Repo** | https://github.com/FissionHQ/ui-design-system |
 | **Registry (GitHub Pages)** | https://FissionHQ.github.io/ui-design-system |
 | **Owned components** | Button, Input, Card, Dialog, Table, Form, Badge, Select, Tabs, Toast |
+| **Getting started** | [`GETTING_STARTED.md`](GETTING_STARTED.md) |
 | **Style guide** | [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) |
 | **shadcn docs** | https://ui.shadcn.com/docs |
 
