@@ -1,85 +1,84 @@
 "use client"
 
+import { ArrowRight, FileCode2, Layers, Paintbrush } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { allNavItems, componentNavItems, type NavId } from "@/components/app-sidebar"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
-export function StarterHome({
-  onNavigate,
-}: {
-  onNavigate: (id: NavId) => void
-}) {
-  const featured = allNavItems.filter((item) =>
-    ["getting-started", "buttons", "accordion", "dashboard"].includes(item.id)
-  )
+const steps = [
+  {
+    icon: FileCode2,
+    title: "Edit app/page.tsx",
+    description: "Open this file to start building your page. Changes save instantly.",
+  },
+  {
+    icon: Layers,
+    title: "Use Fission UI components",
+    description: "Import from @/components/ui/* — Button, Input, Card, and 7 more are ready.",
+  },
+  {
+    icon: Paintbrush,
+    title: "Customise your theme",
+    description: "Swap brand tokens in app/globals.css — every component updates automatically.",
+  },
+]
 
+export function StarterHome() {
   return (
-    <main className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-3xl space-y-6">
-        <div className="space-y-2">
-          <h1 className="text-3xl font-bold text-foreground">POC Starter</h1>
-          <p className="text-muted-foreground">
-            Fission UI Design System — browse components from the sidebar or
-            open a demo below.
+    <main className="flex min-h-screen flex-col items-center justify-center bg-background p-8">
+      <div className="w-full max-w-2xl space-y-8">
+        {/* Hero */}
+        <div className="space-y-3 text-center">
+          <div className="inline-flex items-center justify-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary ring-1 ring-primary/20">
+            Fission UI
+          </div>
+          <h1 className="text-4xl font-bold tracking-tight text-foreground">
+            Get started
+          </h1>
+          <p className="text-lg text-muted-foreground">
+            Edit{" "}
+            <code className="rounded bg-muted px-1.5 py-0.5 text-sm font-mono text-foreground">
+              app/page.tsx
+            </code>{" "}
+            to begin building your app.
           </p>
         </div>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Quick demos</CardTitle>
-            <CardDescription>
-              Buttons, Accordion, and Table replace the old Jobs / Candidates /
-              Settings links.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-wrap gap-3">
-            {featured.map((item) => (
-              <Button
-                key={item.id}
-                variant={item.id === "buttons" ? "default" : "outline"}
-                onClick={() => onNavigate(item.id)}
-              >
-                {item.label}
-              </Button>
-            ))}
-          </CardContent>
-        </Card>
+        {/* Steps */}
+        <div className="grid gap-4 sm:grid-cols-3">
+          {steps.map(({ icon: Icon, title, description }) => (
+            <Card key={title}>
+              <CardHeader className="pb-2">
+                <Icon className="mb-1 size-5 text-primary" />
+                <CardTitle className="text-sm">{title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-xs">{description}</CardDescription>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>All components</CardTitle>
-            <CardDescription>
-              Every registry component is available as a sidebar item.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-wrap gap-2">
-            {allNavItems.map((item) => (
-              <Badge
-                key={item.id}
-                variant="secondary"
-                className="cursor-pointer"
-                onClick={() => onNavigate(item.id)}
-              >
-                {item.label}
-              </Badge>
-            ))}
-          </CardContent>
-        </Card>
-
-        <div className="flex flex-wrap gap-2">
-          <Badge>Default</Badge>
-          <Badge variant="secondary">Secondary</Badge>
-          <Badge variant="outline">Outline</Badge>
-          <Badge variant="destructive">Error</Badge>
-          <Badge variant="success">Success</Badge>
-          <Badge variant="warning">Warning</Badge>
+        {/* CTA */}
+        <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <Button asChild>
+            <a
+              href="https://FissionHQ.github.io/ui-design-system"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Component docs
+              <ArrowRight className="ml-2 size-4" />
+            </a>
+          </Button>
+          <Button variant="outline" asChild>
+            <a
+              href="https://ui.shadcn.com/docs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              shadcn/ui docs
+            </a>
+          </Button>
         </div>
       </div>
     </main>

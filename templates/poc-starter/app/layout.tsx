@@ -5,21 +5,9 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Fission UI Design System",
-  description: "Component gallery and design system overview for Fission Labs",
+  title: "My App",
+  description: "Built with Fission UI",
 }
-
-const themeInitScript = `
-(function () {
-  try {
-    var key = "fission-ui-theme";
-    var saved = localStorage.getItem(key);
-    var allowed = ["fission", "ocean", "forest", "violet", "slate"];
-    var theme = allowed.indexOf(saved) >= 0 ? saved : "fission";
-    document.documentElement.setAttribute("data-theme", theme);
-  } catch (e) {}
-})();
-`
 
 export default function RootLayout({
   children,
@@ -27,10 +15,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
+    <html lang="en">
       <body className={inter.className}>{children}</body>
     </html>
   )
