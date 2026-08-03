@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "npm --prefix gallery install --legacy-peer-deps && npm --prefix gallery run dev",
     "build": "node scripts/build-registry.mjs",
     "sync-rules": "bash scripts/sync-rules.sh",
     "sync-rules:poc": "bash scripts/sync-rules.sh --target",

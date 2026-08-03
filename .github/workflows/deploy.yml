@@ -27,23 +27,23 @@ jobs:
       - name: Build registry JSON
         run: node scripts/build-registry.mjs
 
-      - name: Install Next.js dependencies
-        working-directory: templates/poc-starter
+      - name: Install gallery dependencies
+        working-directory: gallery
         run: npm install --legacy-peer-deps
 
-      - name: Build Next.js static export
-        working-directory: templates/poc-starter
+      - name: Build gallery static export
+        working-directory: gallery
         run: npm run build
 
-      - name: Merge registry JSON into Next.js output
+      - name: Merge registry JSON into gallery output
         run: |
-          cp -r public/r templates/poc-starter/out/r
-          cp public/registry.json templates/poc-starter/out/registry.json
+          cp -r public/r gallery/out/r
+          cp public/registry.json gallery/out/registry.json
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: templates/poc-starter/out
+          path: gallery/out
 
   deploy:
     needs: build
